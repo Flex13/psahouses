@@ -8,121 +8,70 @@
 html, body{
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100vh;
-    
+    width: auto;
+    height: 100%;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../../images/houses.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("../../images/houses.jpg");
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     background-size: cover;
+    box-sizing: content-box;
+    font-size: 100%;
+    vertical-align: baseline;
+    border: none;
 }
 
-div.register {
+section.container.login {
     position: relative;
-    top: 50px; 
+    top: 120px;
     text-align: center;
     margin: auto;
 }
 
+button.land-button {
+    outline: none;
+    margin: 5px;
+    padding: 10px;
+    width: 200px;
+    background: transparent;
+    border: 2px solid;
+    border-radius: 15px;
+    color: #FFF600;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 1s;
+    font-size: 15px;
+}
+
+button.land-button:hover {
+    box-shadow: 0.5px 0.5px 10px 1px #FFF600;
+    cursor: pointer;
+}
+
+h1.site-title {
+    font-size: 5rem;
+    color: white;
+    font-family: 'times new roman';
+}
+
+
 h3.title {
-    font-size: 35px;
+    font-size: 50px;
     font-weight: 500;
     color: #F5F5F5;
+    font-family: 'times new roman';
     text-transform: uppercase;
-    padding: 25px 0 0 0;
-    text-align: center;
+    padding: 20px;
 }
 
-.card1 {
-    margin:20px;
-    background-color: #010B13;
-    border: none;
-    border-radius: 10px;
-    width: 900px;
-    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5), 0 7px 21px 0 rgba(0,0,0,0.5);
-}
-
-span.heading {
+span {
     color: #FFF600;
 }
 
-
-.form-control {
-    outline:none;
-    padding: 10px;
-    border:2px solid white;
-    border-radius: 15px;
-    background: #010B13;
-    color: white;
-    text-align: center;
-    margin: 5px;
-}
-
-.form-control::placeholder {
-    color: white;
-    text-align: center;
-}
-
-
- h4 {
-    font-size: 30px;
-    font-weight: bold;
-    color: white
-}
-
-.label {
-    font-weight: 600;
-    color: white;
-}
-
-
-p.copyright {
-    font-size: 9px;
-    color: white;
-    margin: 0;
-    margin-top: 5px;
-}
-
-div.card-body {
-    padding-bottom: 5px;
-}
-
-.alreadyUser {
-    font-weight: bold;
-    color: rgb(0, 71, 140);
-}
-
-.btn {
-    background: hsla(120,100%,25%,1);
-    border: none;
-    color: white;
-    font-weight: 500;
-}
-
-
-.error {
-	width: 92%; 
-	margin: 0px auto; 
-	padding: 10px; 
-	border: 1px solid #c90000;; 
-	color: #c90000; 
-	background: #f2dede; 
-	border-radius: 5px; 
-	text-align: left;
-}
-.success {
-	width: 92%; 
-	margin: 0px auto;  
-	color: green; 
-	background: #dff0d8; 
-	border: 1px solid green;
-	padding: 10px;
-	border-radius: 5px; 
-	text-align: left;
-}
-
-.login-links:link {
+a.login-links {
     color: #FFF600;
     text-decoration: none;
 }
@@ -131,3 +80,30 @@ p.land-p {
     color: #F5F5F5;
 }
 
+p.copyright {
+    font-size: 12px;
+    color: white;
+    margin-top: 20px;
+}
+
+.error {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #c90000;
+    ;
+    color: #c90000;
+    background: #f2dede;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success {
+    width: 100px;
+    margin: 5px;
+    padding: 10px;
+    color: green;
+    background: #dff0d8;
+    border: 1px solid green;
+    border-radius: 5px;
+    text-align: center;
+}
