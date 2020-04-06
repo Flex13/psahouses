@@ -1,7 +1,7 @@
 <?php $page_title = 'PSA Houses - Home '; ?>
 <?php include('includes/indexheader.php'); ?>
 
-    <section class="container login ">
+    <section class="container login">
     <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <?php echo display_error(); ?>
@@ -10,7 +10,7 @@
             <h1 class="site-title">P<span>S</span>A</h1>
             <p style="color:white">Welcome to Private <span>Student</span> Accommodation Houses</p>
             <a href="community.php"><button class="land-button">Community</button></a>
-            <a href="registrarion/register.php"><button class="land-button">Register</button></a>
+            <a href="registration/register.php"><button class="land-button">Register</button></a>
             <a href="indexabout.php"><button class="land-button">About PSA Houses</button></a>
         </div>
     </div>

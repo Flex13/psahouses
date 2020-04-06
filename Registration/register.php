@@ -77,11 +77,11 @@ array_push($success, "Success - Account Created. Please login");
 
 ?>
 
-<section class="container px-2 py-2 mb-2">
-    <div class="row">
+<section class="container card-show">
+    <div class="row card-row">
 
 
-        <div class="card card1">
+        <div class="card card1 card-spacing">
 
             <h3 class="text-center text-uppercase card-heading">Create Account</h3>
             <div class="col-xs-12 col-md-12 col-lg-12">
@@ -138,11 +138,11 @@ array_push($success, "Success - Account Created. Please login");
                             <label class="form-label">Password</label>
 
                             <input type="password" placeholder="Enter Password" name="password" size="20" maxlength="20" id="psswd" class="input-psswd form-control" value="<?php if (isset($trimmed['password1'])) echo $trimmed['password1']; ?>" autocomplete="on" psswd-shown="false" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required />
-
+                            
                             <small>Please include at least 1 uppercase character, 1 lowercase character, and 1 number.</small>
 
                         </div>
-
+                        <button type="button" class="button-psswd ">Show Password</button>
                         </br>
 
                         <input type="submit" name="submit" class="btn btn-block mb-4" value="Register">

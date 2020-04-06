@@ -23,11 +23,11 @@ if (isset($_POST['confirm'])) {
 }
 ?>
 
-<section class="container">
-        <div class="row">
+<section class="container card-show">
+    <div class="row card-row">
             
 
-                <div class="card card1 pb-5 mt-5">
+                <div class="card card1 card-spacing">
 
                 <div class="col-12" >
                 

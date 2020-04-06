@@ -68,11 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-<section class="container">
-    <div class="row">
+<section class="container card-show">
+    <div class="row card-row">
 
 
-        <div class="card">
+        <div class="card card-spacing">
 
             <div class="col-12">
 

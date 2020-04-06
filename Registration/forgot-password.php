@@ -1,19 +1,40 @@
 <?php $page_title = 'PSA Houses Register '; ?>
 <?php include('includes/header.php'); ?>
 
-<section class="container">
-    <div class="row">
+<?php
+
+if (isset($_POST['resetpassword'])) {
+
+$cstrong = True;
+$token = bin2Hex(openssl_random_pseudo_bytes(64, $cstrong));
+$email = $_POST['email'];
+$user_id = DB::query('SELECT user_id FROM users WHERE email=:email',  array(':email'=>$email))[0]['user_id'];
+DB::query('INSERT INTO password_tokens VALUES (\'\', :token, :user_id)', array(':token' => sha1($token), ':user_id' => $user_id));
+Mail::sendMail('Forgot Password!', " Click Here to Reset Your Password <br><br><a href='http://localhost:8080/registration/change-password.php?token=$token'>Reset Password</a>", $email);
+array_push($success, "Email Sent. Check your Inbox");
+}
+?>
 
 
-        <div class="card">
+
+
+
+
+<section class="container card-show">
+    <div class="row card-row">
+
+
+        <div class="card card-spacing">
 
             <div class="col-12">
 
                 <div class="row text-center">
 
                     <div class="col-xs-12 col-md-12 col-lg-12">
-                        <h3 class="text-center text-uppercase card-heading">Welcome Back</h3>
+                        <h3 class="text-center text-uppercase card-heading">Forgot Your Password?</h3>
                         <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                        <?php echo display_error(); ?>
+                        <?php echo display_success(); ?>
                             <div class="form-group">
                                 <label class="form-label">Email</label>
                                 <div class="input-group mb-3">
@@ -27,7 +48,7 @@
                                 </div>
                             </div>
 
-                            <input type="submit" name="submit" class="btn btn-block mb-4" value="Reset Password">
+                            <input type="submit" name="resetpassword" class="btn btn-block mb-4" value="Reset Password">
                             <center>
                                 <p class="form-label">Are You Registered?</p>
                                 <a href='register.php' class='login-links'>Sign Up</a><br><br>

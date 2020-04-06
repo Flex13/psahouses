@@ -1,5 +1,22 @@
-/* import Fonts from File */
-@import url(./fonts.css); 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+@font-face {
+    font-family: 'optimusprincepssemiboldRg';
+    src: url('fonts/optimusprincepssemibold_600-webfont.woff2') format('woff2'),
+        url('fonts/optimusprincepssemibold_600-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'optimusprincepsregular';
+    src: url('fonts/optimusprinceps_500-webfont.woff2') format('woff2'),
+        url('fonts/optimusprinceps_500-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 * {
     box-sizing: border-box;
@@ -10,7 +27,7 @@ html, body{
     padding: 0;
     width: auto;
     height: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'optimusprincepssemiboldRg';
     font-weight: 400;
     background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("../../images/houses.jpg");
     background-repeat: no-repeat;
@@ -107,3 +124,4 @@ p.copyright {
     border-radius: 5px;
     text-align: center;
 }
+
