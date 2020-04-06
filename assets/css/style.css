@@ -1,0 +1,133 @@
+/* import Fonts from File */
+@import url(./fonts.css); 
+
+* {
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../../images/houses.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div.register {
+    position: relative;
+    top: 50px; 
+    text-align: center;
+    margin: auto;
+}
+
+h3.title {
+    font-size: 35px;
+    font-weight: 500;
+    color: #F5F5F5;
+    text-transform: uppercase;
+    padding: 25px 0 0 0;
+    text-align: center;
+}
+
+.card1 {
+    margin:20px;
+    background-color: #010B13;
+    border: none;
+    border-radius: 10px;
+    width: 900px;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5), 0 7px 21px 0 rgba(0,0,0,0.5);
+}
+
+span.heading {
+    color: #FFF600;
+}
+
+
+.form-control {
+    outline:none;
+    padding: 10px;
+    border:2px solid white;
+    border-radius: 15px;
+    background: #010B13;
+    color: white;
+    text-align: center;
+    margin: 5px;
+}
+
+.form-control::placeholder {
+    color: white;
+    text-align: center;
+}
+
+
+ h4 {
+    font-size: 30px;
+    font-weight: bold;
+    color: white
+}
+
+.label {
+    font-weight: 600;
+    color: white;
+}
+
+
+p.copyright {
+    font-size: 9px;
+    color: white;
+    margin: 0;
+    margin-top: 5px;
+}
+
+div.card-body {
+    padding-bottom: 5px;
+}
+
+.alreadyUser {
+    font-weight: bold;
+    color: rgb(0, 71, 140);
+}
+
+.btn {
+    background: hsla(120,100%,25%,1);
+    border: none;
+    color: white;
+    font-weight: 500;
+}
+
+
+.error {
+	width: 92%; 
+	margin: 0px auto; 
+	padding: 10px; 
+	border: 1px solid #c90000;; 
+	color: #c90000; 
+	background: #f2dede; 
+	border-radius: 5px; 
+	text-align: left;
+}
+.success {
+	width: 92%; 
+	margin: 0px auto;  
+	color: green; 
+	background: #dff0d8; 
+	border: 1px solid green;
+	padding: 10px;
+	border-radius: 5px; 
+	text-align: left;
+}
+
+.login-links:link {
+    color: #FFF600;
+    text-decoration: none;
+}
+
+p.land-p {
+    color: #F5F5F5;
+}
+

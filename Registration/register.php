@@ -1,4 +1,4 @@
-<?php $page_title = 'PSA Houses - Create Account '; ?>
+<?php $page_title = 'PSA Houses - Create Account'; ?>
 <?php include('includes/header.php'); ?>
 <?php
 
@@ -33,14 +33,14 @@ if (!DB::query('SELECT username FROM users WHERE username=:username', array(':us
 
                         if (!empty($country)) {
 
-                            $ip = get_ip();
+$ip = get_ip();
 $today_date = current_date();
 
                         
 
 DB::query('INSERT INTO users VALUES (\'\', :username,:email,:gender,:country,:password, :user_type,:ip, :register_date)', array(':username'=>$username,':gender'=>$gender,':country'=>$country, ':email'=>$email, ':password'=>password_hash($password, PASSWORD_BCRYPT), ':user_type'=>$usertype, ':ip'=>$ip, ':register_date'=>$today_date));
 Mail::sendMail('Welcome to PSA Community Network!', 'Your account has been created!', $email);
-array_push($success, "Success - Account Created");
+array_push($success, "Success - Account Created. Please login");
 
                     } else {
                         array_push($errors, "Please select province");

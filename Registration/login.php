@@ -1,4 +1,4 @@
-<?php $page_title = 'PSA Houses Register '; ?>
+<?php $page_title = 'PSA Houses - Login'; ?>
 <?php include('includes/header.php'); ?>
 
 <?php
@@ -81,6 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="col-xs-12 col-md-12 col-lg-12">
                         <h3 class="text-center text-uppercase card-heading">Welcome Back</h3>
                         <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                        <?php echo display_error(); ?>
+                        <?php echo display_success(); ?>
                             <div class="form-group">
                                 <label class="form-label">Email</label>
                                 <div class="input-group mb-3">
