@@ -1,81 +1,6 @@
 <?php $page_title = 'PSA Houses - Create Account'; ?>
 <?php include('includes/header.php'); ?>
-<?php
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-global $errors;
-
-$username           = $_POST['username'];
-$gender           = $_POST['gender'];
-$country           = $_POST['country'];
-$email              = $_POST['email'];
-$password           = $_POST['password'];
-$usertype           = 'student';
-
-
-
-
-
-if (!DB::query('SELECT username FROM users WHERE username=:username', array(':username'=>$username))) {
-
-    if (!DB::query('SELECT email FROM users WHERE email=:email', array(':email'=>$email))) {
-
-    if (strlen($username) >= 3 && strlen($username) <= 32) {
-
-        if (preg_match('/[a-zA_Z0-9_]+/', $username)) {
-
-            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                
-                if (strlen($password) >= 6 && strlen($password) <=  60) {
-
-                    if (!empty($country)) {
-
-                        if (!empty($country)) {
-
-$ip = get_ip();
-$today_date = current_date();
-
-                        
-
-DB::query('INSERT INTO users VALUES (\'\', :username,:email,:gender,:country,:password, :user_type,:ip, :register_date)', array(':username'=>$username,':gender'=>$gender,':country'=>$country, ':email'=>$email, ':password'=>password_hash($password, PASSWORD_BCRYPT), ':user_type'=>$usertype, ':ip'=>$ip, ':register_date'=>$today_date));
-Mail::sendMail('Welcome to PSA Community Network!', 'Your account has been created!', $email);
-array_push($success, "Success - Account Created. Please login");
-
-                    } else {
-                        array_push($errors, "Please select province");
-                    }
-
-                } else {
-                    array_push($errors, "Invalid Password!");
-                }
-
-            } else {
-                array_push($errors, "invalid email!");
-            }
-
-        } else {
-            array_push($errors, "Invalid Username");
-        }
-
-    } else {
-        array_push($errors, "Invalid username");
-    }
-
-} else {
-    array_push($errors, "Email already exists");
-}
-} else {
-    array_push($errors, "User Already exists");
-}
-
-
-}
-
-
-}
-
-?>
+<?php Login::RegisterUser(); ?>
 
 <section class="container card-show">
     <div class="row card-row">
@@ -138,7 +63,7 @@ array_push($success, "Success - Account Created. Please login");
                             <label class="form-label">Password</label>
 
                             <input type="password" placeholder="Enter Password" name="password" size="20" maxlength="20" id="psswd" class="input-psswd form-control" value="<?php if (isset($trimmed['password1'])) echo $trimmed['password1']; ?>" autocomplete="on" psswd-shown="false" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required />
-                            
+
                             <small>Please include at least 1 uppercase character, 1 lowercase character, and 1 number.</small>
 
                         </div>

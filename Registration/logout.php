@@ -1,27 +1,6 @@
 <?php $page_title = 'PSA Houses - Logout '; ?>
 <?php include('includes/header.php'); ?>
-<?php
-if (!Login::isLoggedIn()) {
-    array_push($errors, "Please Login First");
-    Redirect::redirect_to("login.php");
-}
-
-if (isset($_POST['confirm'])) {
-
-    if (isset($_POST['alldevices'])) {
-        DB::query('DELETE FROM login_tokens WHERE user_id=:user_id', array(':user_id'=>Login::isLoggedIn()));
-        Redirect::redirect_to("login.php");
-    } else {
-        if (isset($_COOKIE['SNID'])) {
-        DB::query('DELETE FROM login_tokens WHERE token=:token', array(':token' => sha1($_COOKIE['SNID'])));
-        Redirect::redirect_to("login.php");
-        }
-        setCookie('SNID', '1', time()-3600);
-        setCookie('SNID_', '1', time()-3600);
-        Redirect::redirect_to("login.php");
-    }
-}
-?>
+<?php Login::LogoutUser() ?>
 
 <section class="container card-show">
     <div class="row card-row">

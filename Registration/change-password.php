@@ -1,72 +1,7 @@
 <?php $page_title = 'PSA Houses Register '; ?>
 <?php include('includes/header.php'); ?>
 
-<?php
-
-$tokenIsValid = False;
-if (Login::isLoggedIn()) {
-
-    if (isset($_POST['changepassword'])) {
-
-        $oldpassword = $_POST['oldpassword'];
-        $newpassword = $_POST['newpassword'];
-        $newpasswordrepeat = $_POST['newpasswordrepeat'];
-        $user_id = Login::isLoggedIn();
-
-        if (password_verify($oldpassword, DB::query('SELECT password from users WHERE user_id=:user_id', array(':user_id' => $user_id))[0]['password'])) {
-
-            if ($newpassword == $newpasswordrepeat) {
-
-                if (strlen($newpassword) >= 6 && strlen($newpasswordrepeat) <=  60) {
-
-                    DB::query('UPDATE users SET password=:newpassword WHERE user_id=:user_id', array(':newpassword' => password_hash($newpassword, PASSWORD_BCRYPT), ':user_id' => $user_id));
-                    array_push($success, "Password Changed Successfully");
-                }
-            } else {
-                array_push($errors, "Passwords don't match");
-            }
-        } else {
-            array_push($errors, "Incorrect Old Password");
-        }
-    }
-} else {
-    
-if (isset($_GET['token'])) {
-    $token = $_GET['token'];
-    if (DB::query('SELECT user_id FROM password_tokens WHERE token=:token',  array(':token' => sha1($token)))) {
-        $user_id = DB::query('SELECT user_id FROM password_tokens WHERE token=:token',  array(':token' => sha1($token)))[0]['user_id'];
-        $tokenIsValid = True;
-        if (isset($_POST['changepassword'])) {
-
-            $newpassword = $_POST['newpassword'];
-            $newpasswordrepeat = $_POST['newpasswordrepeat'];
-    
-    
-                if ($newpassword === $newpasswordrepeat) {
-    
-                    if (strlen($newpassword) >= 6 && strlen($newpasswordrepeat) <=  60) {
-    
-                        DB::query('UPDATE users SET password=:newpassword WHERE user_id=:user_id', array(':newpassword' => password_hash($newpassword, PASSWORD_BCRYPT), ':user_id' => $user_id));
-                        array_push($success, "Password Changed Successfully");
-
-                        DB::query('DELETE FROM password_tokens WHERE user_id=:user_id', array('user_id'=>$user_id));
-                        Redirect::redirect_to("login.php");
-                    }
-                } else {
-                    array_push($errors, "Passwords don't match");
-                }
-            } 
-        } else {
-        array_push($errors, "Token Invalid");
-    } 
-} else {
-    die('Not Logged in');
-}
-}
-?>
-
-
-
+<?php Login::ChangePasswordUser() ?>
 
 
 <section class="container card-show">

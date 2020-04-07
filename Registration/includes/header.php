@@ -1,10 +1,4 @@
-<?php ob_start(); ?>
-<?php session_start(); ?>
-
 <?php include('functions.php');?>
-
-
-
 <!doctype html>
 <html lang="en">
 
